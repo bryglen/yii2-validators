@@ -56,6 +56,8 @@ class CreditCardValidator extends Validator
         self::ALL => '/^(5[1-5][0-9]{14}|4[0-9]{12}([0-9]{3})?|3[47][0-9]{13}|3(0[0-5]|[68][0-9])[0-9]{11}|(6011\d{12}|65\d{14})|(3[0-9]{4}|2131|1800)[0-9]{11}|2(?:014|149)\\d{11}|8699[0-9]{11}|(6334[5-9][0-9]|6767[0-9]{2})\\d{10}(\\d{2,3})?|(?:5020|6\\d{3})\\d{12}|56(10\\d\\d|022[1-5])\\d{10}|(?:49(03(0[2-9]|3[5-9])|11(0[1-2]|7[4-9]|8[1-2])|36[0-9]{2})\\d{10}(\\d{2,3})?)|(?:564182\\d{10}(\\d{2,3})?)|(6(3(33[0-4][0-9])|759[0-9]{2})\\d{10}(\\d{2,3})?)|(?:417500|4026\\d{2}|4917\\d{2}|4913\\d{2}|4508\\d{2}|4844\\d{2})\\d{10}|(?:417500|4026\\d{2}|4917\\d{2}|4913\\d{2}|4508\\d{2}|4844\\d{2})\\d{10})$/'
     );
 
+    public $messageFormat;
+
     /**
      *
      * @var string set with selected Credit Card type to check -ie ECCValidator::MAESTRO
@@ -66,6 +68,9 @@ class CreditCardValidator extends Validator
     {
         if ($this->message === null) {
             $this->message = Yii::t('yii', '{attribute} is not a valid Credit Card number.');
+        }
+        if ($this->messageFormat === null) {
+            $this->message = Yii::t('yii', 'The "format" property must be specified with a supported Credit Card format.');
         }
     }
 
@@ -88,10 +93,7 @@ class CreditCardValidator extends Validator
     protected function validateValue($value)
     {
         if (!$this->checkType()) {
-            throw new InvalidValueException(Yii::t(
-                __CLASS__,
-                'The "format" property must be specified with a supported Credit Card format.'
-            ));
+            return [$this->messageFormat, []];
         }
         $creditCardNumber = preg_replace('/[ -]+/', '', $value);
         $valid = $this->checkFormat($creditCardNumber) && $this->mod10($creditCardNumber);
