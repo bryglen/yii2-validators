@@ -1,5 +1,5 @@
 {
-	"name": "bryglen/yii2-validator",
+	"name": "bryglen/yii2-validators",
 	"description": "credit card validation yii 2",
 	"type": "yii2-extension",
 	"keywords": ["yii2","extension", "validators", "credit card validators"],
