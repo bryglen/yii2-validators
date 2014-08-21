@@ -70,7 +70,7 @@ class CreditCardValidator extends Validator
             $this->message = Yii::t('yii', '{attribute} is not a valid Credit Card number.');
         }
         if ($this->messageFormat === null) {
-            $this->message = Yii::t('yii', 'The "format" property must be specified with a supported Credit Card format.');
+            $this->messageFormat = Yii::t('yii', 'The "format" property must be specified with a supported Credit Card format.');
         }
     }
 
