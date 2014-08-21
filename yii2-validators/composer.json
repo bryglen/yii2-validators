@@ -1,0 +1,18 @@
+{
+	"name": "bryglen/yii2-validator",
+	"description": "credit card validation yii 2",
+	"type": "yii2-extension",
+	"keywords": ["yii2","extension", "validators", "credit card validators"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Bryan Tan",
+			"email": "bryantan16@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"bryglen\\validators\\": ""
+		}
+	}
+}
