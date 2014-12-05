@@ -143,7 +143,7 @@ class CreditCardValidator extends Validator
      */
     public function validateAll($creditCardHolder, $creditCardNumber, $creditCardExpiredMonth, $creditCardExpiredYear)
     {
-        return $this->validateName($creditCardHolder) && $this->validateNumber(
+        return $this->validateName($creditCardHolder) && $this->validateValue(
             $creditCardNumber
         ) && $this->validateDate($creditCardExpiredMonth, $creditCardExpiredYear);
     }
