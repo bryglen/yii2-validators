@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist bryglen/yii2-validators "1.0.0"
+php composer.phar require --prefer-dist bryglen/yii2-validators "1.0.1"
 ```
 
 or add
 
 ```
-"bryglen/yii2-validator": "1.0.0"
+"bryglen/yii2-validator": "1.0.1"
 ```
 
 to the require section of your `composer.json` file.
