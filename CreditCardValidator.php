@@ -130,7 +130,7 @@ class CreditCardValidator extends Validator
      */
     public function validateName($creditCardHolder)
     {
-        return !empty($creditCardHolder) && eregi('^[A-Z ]+$', $creditCardHolder);
+        return !empty($creditCardHolder) && preg_match('/^[A-Z ]+$/i', $creditCardHolder);
     }
 
     /**
